@@ -51,7 +51,7 @@
           method="POST"
           action="#"
           role="registration"
-          onsubmit="obtain()"
+          onsubmit="ValidatePwd()"
         >
           <h1>Cadastro</h1>
           <button type="button" name="Google">Continuar com o Google</button>
@@ -100,15 +100,20 @@
           </section>
 
           <!-- Checkbox precisa de um valor (booleano) para ser validado -->
-          <section class="recaptcha" id="recaptcha">
-            <input type="checkbox" name="recaptcha" role="verificacao" />
+          <section class="recaptcha" id="recaptcha-box">
+            <input
+              type="checkbox"
+              name="recaptcha"
+              role="verificacao"
+              id="recaptcha"
+            />
             <label>Não sou robô</label>
             <p id="recaptcha-not-accepted"></p>
           </section>
 
           <!-- Checkbox precisa de um valor (booleano) para ser validado -->
           <section id="terms-box">
-            <input type="checkbox" name="terms" role="validacao" />
+            <input type="checkbox" name="terms" role="validacao" id="terms" />
             <label>Aceito os termos de uso!</label>
             <p id="terms-not-accepted"></p>
           </section>

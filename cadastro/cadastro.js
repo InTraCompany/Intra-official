@@ -1,8 +1,11 @@
-function obtain() {
-  var inputEmail = document.getElementsByName("email");
-  var email = inputEmail.value;
-  console.log(email);
+//Caixa vermelha
+function RedBox(box, p, phrase) {
+  let dBox = document.getElementById(box);
+  dBox.style.backgroundColor = "red";
+  let dP = document.getElementById(p);
+  dP.innerHTML = phrase;
 }
+
 //AJAX
 function AJAX(atributo, valor) {
   var xhttp = new XMLHttpRequest();
@@ -37,31 +40,34 @@ function ValidateEmail() {
 
 //código para validar a primeira senha
 function ValidatePwd() {
-  var pwd = document.getElementsByName("password").value;
-  var pPwd = document.getElementById("pwd-isnt-correct");
+  var pwd = document.getElementById("password").value;
+  const pPwd = "pwd-isnt-correct";
   if (pwd === undefined || pwd == null) {
-    let boxPwd = document.getElementById("pwd");
-    boxPwd.style.backgroundColor = "red";
-    pPwd.innerHTML = "Senha inválido";
+    let phrase = "Senha inválida";
+    RedBox("pwd", pPwd, phrase);
     return false;
   }
   if (pwd.length < 8) {
-    pPwd.innerHTML = "Senha inválido";
+    let phrase = "Senha muito curta";
+    RedBox("pwd", pPwd, phrase);
     return false;
   }
   if (pwd.match("/[0-9]/mu") === false) {
-    pPwd.innerHTML =
+    let phrase =
       "Para sua segurança recomendamos que adicione números a esta senha";
+    RedBox("pwd", pPwd, phrase);
     return false;
   }
   if (pwd.match("/[a-z]/mu") === false || pwd.match("/[A-Z]/mu") === false) {
-    pPwd.innerHTML =
+    let phrase =
       "Para sua segurança recomendamos que varie entre letras minúsculas e maiusculas nesta senha";
+    RedBox("pwd", pPwd, phrase);
     return false;
   }
   if (pwd.match("/[#$%^&*()+=-[]';,./{}|\":<>?~\\\\]/mu") === false) {
-    pPwd.innerHTML =
+    let phrase =
       "Para sua segurança recomendamos que adicione caracteres especiais a esta senha";
+    RedBox("pwd", pPwd, phrase);
     return false;
   }
   return true;
@@ -71,8 +77,6 @@ function ValidateCpwd() {
   var cPwd = document.getElementsByName("cpassword").value;
   var pCpwd = document.getElementById("cpwd-isnt-correct");
   if (cPwd === undefined || cPwd == null) {
-    let boxCpwd = document.getElementById("cpwd");
-    boxCpwd.style.backgroundColor = "red";
     pCpwd.innerHTML = "Senha inválido";
     return false;
   }
@@ -99,28 +103,24 @@ function ValidateCpwd() {
 }
 
 function ValidateRecaptcha() {
-  var recap = document.getElementsByName("recaptcha");
-  if (recap.check === true) {
+  var recap = document.getElementById("recaptcha");
+  if (recap.checked == true) {
     return true;
   } else {
-    let boxTerms = document.getElementById("recaptcha");
-    boxTerms.style.backgroundColor = "red";
-    let pTerms = document.getElementById("recaptcha-not-accepted");
-    pTerms.innerHTML = "É necessário aceitar os termos para continuar";
+    let phrase = "É necessário aceitar os termos para continuar";
+    RedBox("recaptcha-box", "recaptcha-not-accepted", phrase);
     return false;
   }
 }
 
 function ValidateTerms() {
-  var terms = document.getElementsByName("terms");
-  console.log(terms);
-  if (terms.check === true) {
+  var terms = document.getElementById("terms");
+  if (terms.checked === true) {
+    console.log("tems checked");
     return true;
   } else {
-    let boxTerms = document.getElementById("terms-box");
-    boxTerms.style.backgroundColor = "red";
-    let pTerms = document.getElementById("terms-not-accepted");
-    pTerms.innerHTML = "É necessário aceitar os termos para continuar";
+    let phrase = "É necessário aceitar os termos para continuar";
+    RedBox("terms-box", "terms-not-accepted", phrase);
     return false;
   }
 }
