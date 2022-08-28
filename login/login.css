@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  background-color: #d9d9d9;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.ham_bar {
+  background-color: #979797;
+  height: 5px;
+  width: 100%;
+  margin: 5px auto;
+}
+
+.nav_ham_bar {
+  width: 30px;
+  height: 60%;
+  margin-left: 10px;
+}
+
+.logo {
+  background-color: #b3b0b0;
+  height: 25px;
+  width: 50px;
+}
+
+.profile {
+  height: 35px;
+  width: 35px;
+  background-color: #b3b0b0;
+  border-radius: 100%;
+}
+
+.conteiner_login {
+  height: 75vh;
+  width: 100%;
+  display: block;
+  align-content: center;
+  justify-content: center;
+}
+
+fieldset {
+  height: 100%;
+  width: 70%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 2rem;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+}
+fieldset > legend {
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 50px;
+}
+fieldset > label {
+  width: 100%;
+  justify-self: center;
+}
+.alt_button {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  width: 100%;
+  align-self: center;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+#login_google {
+  width: 85%;
+  height: 30px;
+}
+#login_facebook {
+  width: 85%;
+  height: 30px;
+}
+input {
+  display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: 85%;
+  height: 30px;
+}
+
+footer {
+  width: 100%;
+  height: 25vh;
+  background-color: #abaaaa;
+  display: flex;
+  align-items: flex-start;
+}
+
+.dark_bar {
+  width: 100%;
+  height: 60%;
+  background-color: #5f5e5e;
+}

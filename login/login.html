@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>login</title>
+    <meta name="Author" content="InTra" />
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Site para divulgar vagas voltados aos pcd"
+    />
+    <meta
+      name="keywords"
+      content="Vagas, Trabalho, Acessibilidade, PCD, Emprego"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <section class="nav_ham_bar" aria-label="menu hamburguer">
+            <li><section class="ham_bar"></section></li>
+            <li><section class="ham_bar"></section></li>
+            <li><section class="ham_bar"></section></li>
+          </section>
+          <li><img src="" alt="intra-logo" class="logo" /></li>
+          <li><img src="" alt="profile" /></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="conteiner_login">
+      <form name="login" action="#" method="POST">
+        <fieldset>
+          <legend>Login</legend>
+          <section class="alt_button">
+            <button type="button" id="login_google">Login Google</button>
+            <button type="button" id="login_facebook">Login Facebook</button>
+          </section>
+          <label
+            >Email:
+            <input
+              type="text"
+              name="user_email"
+              aria-required="true"
+              required=""
+            />
+          </label>
+          <label
+            >Senha:
+            <input
+              type="password"
+              name="user_password"
+              aria-required="true"
+              required=""
+            />
+          </label>
+          <section class="links">
+            <a href="">Esqueceu a senha?</a>
+            <a href="">Faça uma conta agora!</a>
+          </section>
+          <input type="submit" name="enviar" value="enviar" />
+        </fieldset>
+      </form>
+    </section>
+    <footer>
+      <section class="dark_bar"></section>
+    </footer>
+  </body>
+</html>
