@@ -46,19 +46,13 @@
     <main>
       <section class="form">
         <!-- Incoerência nos atributos role dos componentes -->
-        <form
-          name="registration"
-          method="POST"
-          action="#"
-          role="registration"
-          onsubmit="ValidatePwd()"
-        >
+        <form name="registration" method="POST" action="#" role="registration">
           <h1>Cadastro</h1>
           <button type="button" name="Google">Continuar com o Google</button>
           <button type="button" name="FaceBook">
             Continuar com o FaceBook
           </button>
-          <section id="email">
+          <section id="box-email">
             <label class="text">Digite o seu email:</label>
             <input
               type="email"
@@ -68,11 +62,10 @@
               required
               min="1"
               max="128"
-              value="try"
             />
             <p id="email-isnt-correct"></p>
           </section>
-          <section id="pwd">
+          <section id="box-pwd">
             <label class="text">Digite a sua senha:</label>
             <input
               type="password"
@@ -81,12 +74,14 @@
               role="senha"
               required
               min="8"
+              id="password"
+              onkeyup="ValidatePwd(this)"
             />
             <p id="pwd-isnt-correct"></p>
           </section>
 
           <!-- Campos diferentes não devem possuir o mesmo nome (password), do contrário não há como resgatá-los -->
-          <section id="cpwd">
+          <section id="box-cpwd">
             <label class="text">Confirme sua senha:</label>
             <input
               type="password"
@@ -95,8 +90,9 @@
               role="confirmacao"
               required
               min="8"
+              onkeyup="ValidateCpwd(this)"
             />
-            <p id="vpwd-isnt-correct"></p>
+            <p id="cpwd-isnt-correct"></p>
           </section>
 
           <!-- Checkbox precisa de um valor (booleano) para ser validado -->
@@ -106,6 +102,7 @@
               name="recaptcha"
               role="verificacao"
               id="recaptcha"
+              onclick="ValidateRecaptcha()"
             />
             <label>Não sou robô</label>
             <p id="recaptcha-not-accepted"></p>
@@ -113,7 +110,13 @@
 
           <!-- Checkbox precisa de um valor (booleano) para ser validado -->
           <section id="terms-box">
-            <input type="checkbox" name="terms" role="validacao" id="terms" />
+            <input
+              type="checkbox"
+              name="terms"
+              role="validacao"
+              id="terms"
+              onclick="ValidateTerms()"
+            />
             <label>Aceito os termos de uso!</label>
             <p id="terms-not-accepted"></p>
           </section>
