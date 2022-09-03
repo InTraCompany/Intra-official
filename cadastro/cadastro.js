@@ -97,21 +97,17 @@ function ValidatePwd(password) {
     let phrase = "Senha muito curta";
     RedBox(boxPwd, pPwd, phrase, color);
     return false;
-  } else if ("/[0-9]/mu".test(pwd) !== false) {
-    console.log("try2");
-    let phrase =
-      "Para sua segurança recomendamos que adicione números a esta senha";
-    RedBox(boxPwd, pPwd, phrase, color);
-    return false;
-  } else if (
-    "/[a-z]/mu".test(pwd) === false ||
-    pwd.match("/[A-Z]/mu") === false
-  ) {
+  } else if ("/[a-z][A-Z]/mug".search(pwd) === -1) {
     let phrase =
       "Para sua segurança recomendamos que varie entre letras minúsculas e maiusculas nesta senha";
     RedBox(boxPwd, pPwd, phrase, color);
     return false;
-  } else if (pwd.match("/[#$%^&*()+=-[]';,./{}|\":<>?~\\\\]/mu") === false) {
+  } else if (1) {
+    let phrase =
+      "Para sua segurança recomendamos que adicione números a esta senha";
+    RedBox(boxPwd, pPwd, phrase, color);
+    return false;
+  } else if ("".search(pwd) === -1) {
     let phrase =
       "Para sua segurança recomendamos que adicione caracteres especiais a esta senha";
     RedBox(boxPwd, pPwd, phrase, color);
