@@ -46,7 +46,13 @@
     <main>
       <section class="form">
         <!-- Incoerência nos atributos role dos componentes -->
-        <form name="registration" method="POST" action="#" role="registration">
+        <form
+          name="registration"
+          method="POST"
+          action="#"
+          role="registration"
+          onsubmit="Validate()"
+        >
           <h1>Cadastro</h1>
           <button type="button" name="Google">Continuar com o Google</button>
           <button type="button" name="FaceBook">
@@ -59,9 +65,12 @@
               name="email"
               class="fields"
               role="email"
+              id="email"
               required
               min="1"
               max="128"
+              onkeyup="ValidateEmail()"
+              ;
             />
             <p id="email-isnt-correct"></p>
           </section>

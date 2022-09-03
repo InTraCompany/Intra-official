@@ -19,8 +19,7 @@ function AJAX(atributo, valor) {
 
 //código para validar o nome
 function ValidateEmail() {
-  var inputEmail = document.getElementsByName("email");
-  var email = inputEmail.value;
+  var email = document.getElementById("email").value;
   var exist = AJAX("email", email);
   if (
     email === undefined ||
@@ -40,48 +39,6 @@ function ValidateEmail() {
   }
 }
 
-//Confirmar senha
-function ValidateCpwd(cpwd) {
-  var Cpwd = cpwd.value;
-  var pwd = document.getElementById("password").value;
-  var pCpwd = "cpwd-isnt-correct";
-  var boxCpwd = "box-cpwd";
-  var phrase = "";
-  var color = "white";
-  if (Cpwd !== pwd) {
-    phrase = "Senhas incompatíveis";
-    color = "red";
-    RedBox(boxCpwd, pCpwd, phrase, color);
-    return false;
-  } else {
-    RedBox(boxCpwd, pCpwd, phrase, color);
-    return true;
-  }
-  /*if (cPwd === undefined || cPwd == null) {
-    pCpwd.innerHTML = "Senha inválido";
-    return false;
-  }
-  if (cPwd.length < 8) {
-    pCpwd.innerHTML = "Senha inválido";
-    return false;
-  }
-  if (cPwd.match("/[0-9]/mu") === false) {
-    pCpwd.innerHTML =
-      "Para sua segurança recomendamos que adicione números a esta senha";
-    return false;
-  }
-  if (cPwd.match("/[a-z]/mu") === false || cPwd.match("/[A-Z]/mu") === false) {
-    pCpwd.innerHTML =
-      "Para sua segurança recomendamos que varie entre letras minúsculas e maiusculas nesta senha";
-    return false;
-  }
-  if (cPwd.match("/[#$%^&*()+=-[]';,./{}|\":<>?~\\\\]/mu") === false) {
-    pCpwd.innerHTML =
-      "Para sua segurança recomendamos que adicione caracteres especiais a esta senha";
-    return false;
-  }*/
-}
-
 //código para validar a primeira senha
 function ValidatePwd(password) {
   var pwd = password.value;
@@ -97,59 +54,53 @@ function ValidatePwd(password) {
     let phrase = "Senha muito curta";
     RedBox(boxPwd, pPwd, phrase, color);
     return false;
-  } else if ("/[a-z][A-Z]/mug".search(pwd) === -1) {
-    let phrase =
-      "Para sua segurança recomendamos que varie entre letras minúsculas e maiusculas nesta senha";
-    RedBox(boxPwd, pPwd, phrase, color);
-    return false;
-  } else if (1) {
+  } else if (pwd.search(/[0-9]/) === -1) {
     let phrase =
       "Para sua segurança recomendamos que adicione números a esta senha";
     RedBox(boxPwd, pPwd, phrase, color);
     return false;
-  } else if ("".search(pwd) === -1) {
+  } else if (pwd.search(/[a-z]/) === -1 || pwd.search(/[A-Z]/) === -1) {
+    let phrase =
+      "Para sua segurança recomendamos que varie entre letras minúsculas e maiusculas nesta senha";
+    RedBox(boxPwd, pPwd, phrase, color);
+    return false;
+  } else if (
+    pwd.search(
+      /[\s*#\s*$\s*%\s*^\s*&\s**\s*(\s*)\s*+\s*=\s*-\s*[\s*\]\s*!\s*@\s*¨\s*£\s*¢\s*¬\s*°\s*º\s*ª\s*'\s*;\s*,\s*.\s*{\s*}\s*|\s*"\s*:\s*<\s*>\s*?\s*~\s*\\\s*/\s*Ç]/g
+    ) === -1
+  ) {
     let phrase =
       "Para sua segurança recomendamos que adicione caracteres especiais a esta senha";
     RedBox(boxPwd, pPwd, phrase, color);
     return false;
-  } else if (ValidateCpwd() === false) {
+    /*} else if (ValidateCpwd() === false) {
     let phrase = "Senhas incompatíveis";
     RedBox("recaptcha-box", "recaptcha-not-accepted", phrase, color);
+    return false;*/
+  } else {
+    color = "green";
+    RedBox(boxPwd, pPwd, phrase, color);
+    return console.log(true);
+  }
+}
+
+//Confirmar senha
+function ValidateCpwd(cpwd) {
+  var Cpwd = cpwd.value;
+  var pwd = document.getElementById("password").value;
+  var pCpwd = "cpwd-isnt-correct";
+  var boxCpwd = "box-cpwd";
+  var phrase = "";
+  var color = "green";
+  if (Cpwd !== pwd) {
+    phrase = "Senhas incompatíveis";
+    color = "red";
+    RedBox(boxCpwd, pCpwd, phrase, color);
     return false;
   } else {
-    RedBox(boxPwd, pPwd, phrase, color);
+    RedBox(boxCpwd, pCpwd, phrase, color);
     return true;
   }
-  /*if (pwd.length < 8) {
-    let phrase = "Senha muito curta";
-    RedBox(boxPwd, pPwd, phrase, color);
-    return false;
-  }
-  if (pwd.match("/[0-9]/mu") === false) {
-    let phrase =
-      "Para sua segurança recomendamos que adicione números a esta senha";
-    RedBox(boxPwd, pPwd, phrase, color);
-    return false;
-  }
-  if (pwd.match("/[a-z]/mu") === false || pwd.match("/[A-Z]/mu") === false) {
-    let phrase =
-      "Para sua segurança recomendamos que varie entre letras minúsculas e maiusculas nesta senha";
-    RedBox(boxPwd, pPwd, phrase, color);
-    return false;
-  }
-  if (pwd.match("/[#$%^&*()+=-[]';,./{}|\":<>?~\\\\]/mu") === false) {
-    let phrase =
-      "Para sua segurança recomendamos que adicione caracteres especiais a esta senha";
-    RedBox(boxPwd, pPwd, phrase, color);
-    return false;
-  }
-  if (ValidateCpwd() === false) {
-    let phrase = "Senhas incompatíveis";
-    RedBox("recaptcha-box", "recaptcha-not-accepted", phrase, color);
-    return false;
-  }
-  RedBox(boxPwd, pPwd, phrase, color);
-  return true;*/
 }
 
 function ValidateRecaptcha() {
@@ -159,7 +110,6 @@ function ValidateRecaptcha() {
   var phrase = "";
   var color = "white";
   if (recap.checked === true) {
-    RedBox(boxRecap, pRecap, phrase, color);
     return true;
   } else {
     phrase = "É necessário aceitar os termos para continuar";
@@ -185,14 +135,23 @@ function ValidateTerms() {
   }
 }
 
-function Validate() {
+function Validate(event) {
+  console.log("Validate");
+  console.log(ValidatePwd());
+  console.log(ValidateCpwd());
+  console.log(ValidateRecaptcha());
+  console.log(ValidateTerms());
   if (
-    ValidatePwd() &&
+    /*ValidatePwd() &&
     ValidateCpwd() &&
     ValidateRecaptcha() &&
-    ValidateTerms()
+    ValidateTerms()*/
+    true
   ) {
+    console.log("Tudo certo");
   } else {
+    console.log("Algo deu errado");
+    event.preventDefault();
   }
 }
 
