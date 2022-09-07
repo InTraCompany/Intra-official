@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="Author" content="InTra Company" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- Atributo name da meta tag escrito incorretamente -->
+    <meta
+      name="descripiont"
+      content="Ainda não possui cadastro, cadastre-se agora e venha aproiveitar todos os benefícios."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="content-language" content="pt-br" />
+    <title>Cadastro</title>
+  </head>
+  <style>
+    #acessibility-pane {
+      background-color: rgb(75, 74, 74);
+      height: 40vh;
+      width: 20vw;
+    }
+    .active {
+      position: absolute;
+      background-color: green;
+      height: 20vh;
+      width: 20vw;
+      left: 3em;
+    }
+  </style>
+  <script>
+    function menuPane() {
+      document.getElementById("primeiro").classList.toggle("active");
+    }
+    const pane = document.getElementById("acessibility-pane");
+    pane.addEventListener("mouseover", menuPane());
+    pane.addEventListener("mouseout", menuPane());
+  </script>
+  <body>
+    <section id="acessibility-pane">
+      <section id="primeiro"></section>
+    </section>
+  </body>
+</html>

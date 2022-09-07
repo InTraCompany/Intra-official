@@ -49,9 +49,9 @@
         <form
           name="registration"
           method="POST"
+          id="registration"
           action="#"
           role="registration"
-          onsubmit="Validate()"
         >
           <h1>Cadastro</h1>
           <button type="button" name="Google">Continuar com o Google</button>
@@ -84,7 +84,7 @@
               required
               min="8"
               id="password"
-              onkeyup="ValidatePwd(this)"
+              onkeyup="ValidatePwd()"
             />
             <p id="pwd-isnt-correct"></p>
           </section>
@@ -97,9 +97,10 @@
               name="cpassword"
               class="fields"
               role="confirmacao"
+              id="cpassword"
               required
               min="8"
-              onkeyup="ValidateCpwd(this)"
+              onkeyup="ValidateCpwd()"
             />
             <p id="cpwd-isnt-correct"></p>
           </section>
@@ -111,6 +112,7 @@
               name="recaptcha"
               role="verificacao"
               id="recaptcha"
+              required
               onclick="ValidateRecaptcha()"
             />
             <label>Não sou robô</label>
@@ -124,6 +126,7 @@
               name="terms"
               role="validacao"
               id="terms"
+              required
               onclick="ValidateTerms()"
             />
             <label>Aceito os termos de uso!</label>

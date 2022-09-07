@@ -21,27 +21,31 @@ function AJAX(atributo, valor) {
 function ValidateEmail() {
   var email = document.getElementById("email").value;
   var exist = AJAX("email", email);
+  var pEmail = "email-isnt-correct";
+  let boxEmail = "box-email";
+  let color = "red";
   if (
     email === undefined ||
     email === null ||
     email[0] === " " ||
+    email.search(/[@]/) === -1 ||
     exist === true
   ) {
     let phrase =
       exist === true ? "Este email já está em uso" : "Email inválido";
-    let pEmail = "email-isnt-correct";
-    let boxEmail = "box-email";
-    let color = "red";
     RedBox(boxEmail, pEmail, phrase, color);
     return false;
   } else {
+    let phrase = "";
+    let color = "green";
+    RedBox(boxEmail, pEmail, phrase, color);
     return true;
   }
 }
 
 //código para validar a primeira senha
-function ValidatePwd(password) {
-  var pwd = password.value;
+function ValidatePwd() {
+  var pwd = document.getElementById("password").value;
   const pPwd = "pwd-isnt-correct";
   const boxPwd = "box-pwd";
   var phrase = "";
@@ -80,13 +84,13 @@ function ValidatePwd(password) {
   } else {
     color = "green";
     RedBox(boxPwd, pPwd, phrase, color);
-    return console.log(true);
+    return true;
   }
 }
 
 //Confirmar senha
-function ValidateCpwd(cpwd) {
-  var Cpwd = cpwd.value;
+function ValidateCpwd() {
+  var Cpwd = document.getElementById("cpassword").value;
   var pwd = document.getElementById("password").value;
   var pCpwd = "cpwd-isnt-correct";
   var boxCpwd = "box-cpwd";
@@ -110,6 +114,7 @@ function ValidateRecaptcha() {
   var phrase = "";
   var color = "white";
   if (recap.checked === true) {
+    RedBox(boxRecap, pRecap, phrase, color);
     return true;
   } else {
     phrase = "É necessário aceitar os termos para continuar";
@@ -126,6 +131,7 @@ function ValidateTerms() {
   var phrase = "";
   var color = "white";
   if (terms.checked === true) {
+    RedBox(boxTerms, pTerms, phrase, color);
     return true;
   } else {
     phrase = "É necessário aceitar os termos para continuar";
@@ -135,25 +141,29 @@ function ValidateTerms() {
   }
 }
 
-function Validate(event) {
-  console.log("Validate");
+//Ativar validatação total
+const form = document.getElementById("registration");
+form.addEventListener("submit", (e) => {
+  console.log(ValidateEmail());
   console.log(ValidatePwd());
   console.log(ValidateCpwd());
   console.log(ValidateRecaptcha());
   console.log(ValidateTerms());
   if (
-    /*ValidatePwd() &&
+    ValidateEmail() &&
+    ValidatePwd() &&
     ValidateCpwd() &&
     ValidateRecaptcha() &&
-    ValidateTerms()*/
-    true
+    ValidateTerms()
   ) {
-    console.log("Tudo certo");
   } else {
-    console.log("Algo deu errado");
-    event.preventDefault();
+    e.preventDefault();
+    window.alert(
+      "Não foi possível enviar o formulário, verifique se todas as informações estão corretas"
+    );
+    return false;
   }
-}
+});
 
 //Ham menu
 function hamMenu(menu) {
