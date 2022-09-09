@@ -144,11 +144,6 @@ function ValidateTerms() {
 //Ativar validatação total
 const form = document.getElementById("registration");
 form.addEventListener("submit", (e) => {
-  console.log(ValidateEmail());
-  console.log(ValidatePwd());
-  console.log(ValidateCpwd());
-  console.log(ValidateRecaptcha());
-  console.log(ValidateTerms());
   if (
     ValidateEmail() &&
     ValidatePwd() &&
@@ -164,15 +159,3 @@ form.addEventListener("submit", (e) => {
     return false;
   }
 });
-
-//Ham menu
-function hamMenu(menu) {
-  menu.classList.toggle("active");
-  var active = menu.classList.contains("active");
-  menu.setAttribute("aria-expanded", active);
-  if (active) {
-    menu.setAttribute("aria-label", "Fechar Menu");
-  } else {
-    menu.setAttribute("aria-label", "Abrir Menu");
-  }
-}

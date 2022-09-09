@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="menu.css" />
     <!-- Atributo name da meta tag escrito incorretamente -->
     <meta
       name="descripiont"
@@ -15,30 +16,24 @@
     <title>Cadastro</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <section
-            class="nav_ham_bar"
-            aria-haspopup="true"
-            aria-controls="menu"
-            aria-label="Abrir Menu"
-            aria-expanded="false"
-            onclick="hamMenu(this)"
-          >
-            <li>
-              <section class="ham_bar"></section>
-            </li>
-            <li>
-              <section class="ham_bar"></section>
-            </li>
-            <li>
-              <section class="ham_bar"></section>
-            </li>
-          </section>
-          <!-- Adicionar title às imagens -->
-          <li><img src="" alt="intra-logo" class="logo" /></li>
-          <li><img src="" alt="profile" /></li>
+    <header id="header">
+      <a id="logo" href="">Logo</a>
+      <nav id="nav">
+        <button
+          aria-label="Abrir Menu"
+          id="btn-mobile"
+          aria-haspopup="true"
+          aria-controls="menu"
+          aria-expanded="false"
+          onclick="hamMenu(this)"
+        >
+          Menu
+          <span id="hamburger"></span>
+        </button>
+        <ul id="menu" role="menu">
+          <li><a href="">Home</a></li>
+          <li><a href="">Cursos</a></li>
+          <li><a href="">Vagas</a></li>
         </ul>
       </nav>
     </header>
@@ -145,4 +140,5 @@
     </footer>
   </body>
   <script src="cadastro.js"></script>
+  <script src="menu.js"></script>
 </html>
