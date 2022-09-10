@@ -15,18 +15,6 @@
     <meta http-equiv="content-language" content="pt-br" />
     <title>Cadastro</title>
   </head>
-  <script>
-    function onClick(e) {
-      e.preventDefault();
-      grecaptcha.ready(function () {
-        grecaptcha
-          .execute("reCAPTCHA_site_key", { action: "Register" })
-          .then(function (token) {
-            console.log(token);
-          });
-      });
-    }
-  </script>
   <body>
     <header id="header">
       <a id="logo" href="">Logo</a>
@@ -138,7 +126,6 @@
           <!-- Colocar nomes mais significativos, como "userController" ou "login" -->
           <input type="submit" name="submit" id="submit" />
         </form>
-        <script src="https://www.google.com/recaptcha/api.js?render=6LcqsOghAAAAAHXfAz2IvS9JDTpxUDb-KVJQfc8q"></script>
       </section>
 
       <!-- Faltou a implementação do componente? -->
