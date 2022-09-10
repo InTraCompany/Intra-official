@@ -15,6 +15,18 @@
     <meta http-equiv="content-language" content="pt-br" />
     <title>Cadastro</title>
   </head>
+  <script>
+    function onClick(e) {
+      e.preventDefault();
+      grecaptcha.ready(function () {
+        grecaptcha
+          .execute("reCAPTCHA_site_key", { action: "Register" })
+          .then(function (token) {
+            console.log(token);
+          });
+      });
+    }
+  </script>
   <body>
     <header id="header">
       <a id="logo" href="">Logo</a>
@@ -103,15 +115,11 @@
           <!-- Checkbox precisa de um valor (booleano) para ser validado -->
           <section class="recaptcha" id="recaptcha-box">
             <input
-              type="checkbox"
-              name="recaptcha"
+              type="text"
+              name="g-recaptcha-response"
               role="verificacao"
-              id="recaptcha"
-              required
-              onclick="ValidateRecaptcha()"
+              id="g-recaptcha-response"
             />
-            <label>Não sou robô</label>
-            <p id="recaptcha-not-accepted"></p>
           </section>
 
           <!-- Checkbox precisa de um valor (booleano) para ser validado -->
@@ -130,6 +138,7 @@
           <!-- Colocar nomes mais significativos, como "userController" ou "login" -->
           <input type="submit" name="submit" id="submit" />
         </form>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LcqsOghAAAAAHXfAz2IvS9JDTpxUDb-KVJQfc8q"></script>
       </section>
 
       <!-- Faltou a implementação do componente? -->
