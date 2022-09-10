@@ -107,22 +107,6 @@ function ValidateCpwd() {
   }
 }
 
-function ValidateRecaptcha() {
-  var recap = document.getElementById("recaptcha");
-  var boxRecap = "recaptcha-box";
-  var pRecap = "recaptcha-not-accepted";
-  var phrase = "";
-  var color = "white";
-  if (recap.checked === true) {
-    RedBox(boxRecap, pRecap, phrase, color);
-    return true;
-  } else {
-    phrase = "É necessário aceitar os termos para continuar";
-    color = "red";
-    RedBox(boxRecap, pRecap, phrase, color);
-    return false;
-  }
-}
 
 function ValidateTerms() {
   var terms = document.getElementById("terms");
@@ -148,7 +132,6 @@ form.addEventListener("submit", (e) => {
     ValidateEmail() &&
     ValidatePwd() &&
     ValidateCpwd() &&
-    ValidateRecaptcha() &&
     ValidateTerms()
   ) {
   } else {
