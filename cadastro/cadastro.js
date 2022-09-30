@@ -116,6 +116,7 @@ function ValidateTerms() {
   var color = "white";
   if (terms.checked === true) {
     RedBox(boxTerms, pTerms, phrase, color);
+    terms.setAttribute("aria-checked", true);
     return true;
   } else {
     phrase = "É necessário aceitar os termos para continuar";

@@ -18,8 +18,9 @@
   <body>
     <header id="header">
       <a id="logo" href="">Logo</a>
-      <nav id="nav">
+      <nav id="navigation header">
         <button
+          name="Menu"
           aria-label="Abrir Menu"
           id="btn-mobile"
           aria-haspopup="true"
@@ -27,7 +28,6 @@
           aria-expanded="false"
           onclick="hamMenu(this)"
         >
-          Menu
           <span id="hamburger"></span>
         </button>
         <ul id="menu" role="menu">
@@ -117,10 +117,12 @@
               name="terms"
               role="validacao"
               id="terms"
+              aria-checked="false"
+              aria-labelledby="terms-label"
               required
               onclick="ValidateTerms()"
             />
-            <label>Aceito os termos de uso!</label>
+            <label id="terms-label">Aceito os termos de uso!</label>
             <p id="terms-not-accepted"></p>
           </section>
           <!-- Colocar nomes mais significativos, como "userController" ou "login" -->

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="Author" content="InTra Company" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Vagas de emprego para PcD"
+      content="Ainda não possui cadastro, cadastre-se agora e venha aproiveitar todos os benefícios."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="content-language" content="pt-br" />
+    <title>Vagas</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        name="navigation-header"
+        id="navigation-header"
+        aria-description="Cabeçalho do site que contêm itens de navegação, tal como: menu hamburger e perfil"
+        aria-orientation="horizontal"
+      >
+        <button
+          name="menu"
+          class="nav_ham_bar"
+          role="Abrir Menu"
+          id="btn-mobile"
+          aria-label="Abrir Menu Hamburger"
+          aria-haspopup="true"
+          aria-controls="menu"
+          aria-expanded="false"
+          aria-level="3"
+          aria-description="Menu hamburger para a navegação entre páginas do site"
+          aria-roledescription="Menu hamburger para a navegação entre páginas do site"
+          onclick="hamMenu(this)"
+        >
+          <span id="hamburger"></span>
+        </button>
+        <ul
+          name="menu-options"
+          id="menu"
+          role="menu"
+          aria-rowcount="3"
+          aria-label="Opções do menu"
+          aria-description="Opções de páginas para visitar do menu hamburger"
+          aria-orientation="vertical"
+        >
+          <li>
+            <a
+              href=""
+              aria-rowindex="1"
+              aria-rowindextext="Ir para a home"
+              aria-description="Opção para ir até a home do site"
+              aria-orientation="horizontal"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              aria-rowindex="2"
+              aria-rowindextext="Ir para cursos"
+              aria-description="Opção para ir até os cursos do site"
+              aria-orientation="horizontal"
+              >Cursos</a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <img
+              src=""
+              alt="intra-logo"
+              class="logo"
+              aria-description="Logo da Intra que leva até a home se for pressionada"
+              aria-level="3"
+            />
+          </li>
+          <li>
+            <img
+              src=""
+              alt="profile"
+              aria-level="3"
+              role="Linkar"
+              aria-description="Perfil do usuário, clicando sobre esse será levado suas informações"
+              aria-roledescription="Perfil do usuário, usado para acessar suas informações"
+            />
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section
+        name="filter-area"
+        aria-description="Área para pesquisar sobre as vagas"
+        aria-orientation="horizontal"
+      >
+        <form
+          name="filter"
+          action=""
+          method="GET"
+          aria-description="Formulário para pesquisar sobre as vagas"
+          aria-orientation="horizontal"
+        >
+          <input
+            name="filter"
+            type="text"
+            placehold="Busque vagas por palavras-chave"
+            aria-invalid="false"
+            aria-live="polite"
+            aria-level="2"
+            aria-orientation="horizontal"
+            aria-required="true"
+            aria-roledescription="Buscar vagas por palavras-chave"
+            role="Filtrar"
+            required
+          />
+          <button
+            name="Filters-button"
+            aria-label="Abrir Filtros"
+            aria-haspopup="listbox"
+            aria-controls="filters"
+            aria-expanded="false"
+            aria-level="2"
+            aria-orientation="horizontal"
+            aria-description="Área para abrir caixa com opções de pesquisa sobre as vagas"
+          ></button>
+          <ul
+            name="filters"
+            role="filters"
+            aria-controls="filters-options"
+            aria-rowcount="3"
+            area-description="Palavras-chave para filtrar vagas"
+            aria-haspopup="listbox"
+            aria-orientation="vertical"
+            aria-expanded="false"
+          >
+            <li
+              name="filter1"
+              aria-controls="filter-option1"
+              aria-rowindex="1"
+              aria-rowindextext=""
+              aria-orientation="horizontal"
+            ></li>
+            <li
+              name="filter2"
+              aria-controls="filter-option2"
+              aria-rowindex="2"
+              aria-rowindextext=""
+              aria-orientation="horizontal"
+            ></li>
+            <li
+              name="filter3"
+              aria-controls="filter-option3"
+              aria-rowindex="3"
+              aria-rowindextext=""
+              aria-orientation="horizontal"
+            ></li>
+          </ul>
+          <ul
+            name="filters-options"
+            role="filters"
+            aria-rowcount="3"
+            area-description="Opções mais específicas para filtrar vagas"
+            aria-orientation="vertical"
+          >
+            <li
+              name="filter-option1"
+              aria-rowindex="1"
+              aria-rowindextext=""
+              aria-orientation="horizontal"
+            ></li>
+            <li
+              name="filter-option2"
+              aria-rowindex="2"
+              aria-rowindextext=""
+              aria-orientation="horizontal"
+            ></li>
+            <li
+              name="filter-option3"
+              aria-rowindex="3"
+              aria-rowindextext=""
+              aria-orientation="horizontal"
+            ></li>
+            11
+          </ul>
+        </form>
+      </section>
+      <section
+        name="job-vacancies-area"
+        aria-rowcount="x"
+        aria-description="Área com vagas de emprego disponíveis"
+        aria-live="assertive"
+        aria-orientation="vertical"
+      >
+        <section
+          name="job-vacancy"
+          aria-rowindex="y"
+          aria-description="Caixa com informações sobre da vaga de emprego disponível"
+          aria-level="1"
+          aria-orientation="horizontal"
+        >
+          <img src="" alt="job-vacancy-image" />
+          <p
+            name="job-vacancy-name"
+            aria-details="job-vacancy-description job-vacancy-location job-vacancy-type job-vacancy-workload"
+            aria-orientation="horizontal"
+          ></p>
+          <textbox
+            name="job-vacancy-description"
+            id="job-vacancy-description"
+            aria-orientation="horizontal"
+            aria-placeholder="Descrição da vaga de emprego"
+            aria-readonly="true"
+            readonly
+          ></textbox>
+          <p
+            name="job-vacancy-location"
+            id="job-vacancy-location"
+            aria-orientation="horizontal"
+          ></p>
+          <p
+            name="job-vacancy-type"
+            id="job-vacancy-type"
+            aria-orientation="horizontal"
+          ></p>
+          <p
+            name="job-vacancy-workload"
+            id="job-vacancy-workload"
+            aria-orientation="horizontal"
+          ></p>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <section
+        class="dark_bar"
+        aria-description="Rodapé com informações do site"
+        aria-orientation="horizontal"
+      ></section>
+    </footer>
+  </body>
+</html>
